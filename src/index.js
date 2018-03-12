@@ -2,13 +2,15 @@ module.exports = function count(s, pairs) {
   var N = 1;
 
   for (var i = 0; i < pairs.length; i++) {
+    if (pairs[i][1] > 100) {
+      return 0;
+    }
   	N *= Math.pow(pairs[i][0], pairs[i][1])
   }
 
-  if (N > 12320) {
-  	return 0;
+  if (pairs.length >= 8) {
+    return 0;
   }
-
   function nod(a, b){
     if (b === 0) {
       return a;
